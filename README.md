@@ -2,7 +2,8 @@
 
 My personal bucket of code that I will probably use and reuse across different projects or just some fun things that I liked or learned.
 
-
+Notes:
+- The requirements list present the last version tested for each package used.
 
 ### Configuration files
 
@@ -64,3 +65,24 @@ model = dict(
         decay=cfg.optimizer.get("decay", 0.0)
   )  
   ```
+  
+
+<!--### Saving bounding boxes in the Pascal VOC format-->
+
+### Pre-commit
+
+Setup that runs a local `pre-commit` that organizes the imports inside each python file (with `isort`),
+runs a code formatter to follow the PEP 8 style guide (with `autopep8`), runs another code style enforcement tool (`flake8`) which is complementary to `autopep8`, and finally,
+runs a static code analysis tool over our source files (with `pylint`). 
+
+
+**How to use:**
+
+- Requirements:
+```
+pip install autopep8==1.5.5 pylint==2.7.2 isort==5.7.0 flake8==3.9.2
+```
+- Define the pre-commit setup in `Makefile` and the corresponding configuration of pylint in `.pylintrc`
+
+- Run the following command inside the project directory: `make pre-commit`
+
